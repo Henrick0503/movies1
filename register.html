@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cadastro - PlayerFlix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="brand">PlayerFlix</div>
+        <nav class="navlinks">
+            <a href="index.html" class="nav-link">Voltar</a>
+        </nav>
+    </header>
+
+    <main style="display:flex;align-items:center;justify-content:center;padding:60px 20px">
+        <section
+            style="max-width:480px;width:100%;background:var(--panel);padding:24px;border-radius:12px;box-shadow:var(--shadow)">
+            <h2>Cadastrar</h2>
+            <form id="registerForm">
+                <label>Nome<input type="text" name="name" required></label>
+                <label>Email<input type="email" name="email" required></label>
+                <label>Senha<input type="password" name="password" required></label>
+                <button class="btn primary" type="submit">Criar conta</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js" defer></script>
+    <script>
+        // Demonstração de cadastro (não persiste em backend)
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Em produção, enviar dados para API de cadastro
+            alert('Conta criada! Você será redirecionado.');
+            // Simular login e redirecionar
+            localStorage.setItem('pf_user', JSON.stringify({ guest: false, name: this.name.value, email: this.email.value }));
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

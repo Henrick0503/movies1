@@ -1,84 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>PlayerFlix - Filmes & Séries</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inflix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="theme-dark">
-    <header class="site-header">
-        <div class="brand">PlayerFlix</div>
-        <nav class="main-nav">
-            <a href="#home" data-scroll>Home</a>
-            <a href="#filmes" data-scroll>Filmes</a>
-            <a href="#series" data-scroll>Séries</a>
-            <a href="#contato" data-scroll>Contato</a>
+<body class="light-theme">
+    <!-- Header com navegação -->
+    <header>
+        <nav>
+            <div class="logo">Inflixx</div>
+            <div class="theme-toggle">
+                <button id="themeToggle">🌓</button>
+            </div>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#movies">Filmes</a></li>
+                <li><a href="#series">Séries</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="login.html" class="btn-login">Entrar</a></li>
+            </ul>
         </nav>
-        <div class="header-actions">
-            <button id="themeToggle" aria-label="Alternar tema">Tema</button>
-            <a class="btn login" href="login.html">Entrar</a>
-        </div>
-        <button class="nav-toggle" aria-label="Abrir menu">☰</button>
     </header>
 
+    <!-- Seção principal -->
     <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Bem-vindo ao PlayerFlix</h1>
-                <p>Descubra filmes e séries com experiência inspirada na Netflix.</p>
-            </div>
+        <section id="home" class="content-section">
+            <h1>Bem-vindo ao Infixx</h1>
+            <p>Seus filmes e séries favoritos estão apenas um clique de distância!</p>
         </section>
 
-        <section id="filmes" class="catalog">
+        <section id="movies" class="content-section">
             <h2>Filmes</h2>
-            <div class="grid">
-                <!-- Exemplo de card: Os Vingadores -->
-                <article class="card" data-imdb="tt0848228" tabindex="0">
-                    <img src="https://images.justwatch.com/poster/204366450/s718/marvels-the-avengers.jpg"
-                        alt="Os Vingadores (2012)">
-                    <div class="card-meta">
-                        <h3>Os Vingadores</h3>
-                        <small>(2012)</small>
+            <div class="movie-list">
+                <div class="movie-card" data-movie-id="tt0848228">
+                    <img src="https://images.justwatch.com/poster/204366450/s718/marvels-the-avengers.jpg" 
+                         alt="Os Vingadores">
+                    <div class="movie-info">
+                        <h3>Os Vingadores <span class="year">(2012)</span></h3>
+                        <button class="play-btn" onclick="playMovie('tt0848228')">Assistir Agora</button>
                     </div>
-                </article>
-
-                <!-- ...existing code... outros cards podem ser adicionados aqui ...existing code... -->
+                </div>
             </div>
         </section>
 
-        <section id="series" class="catalog">
+        <section id="series" class="content-section">
             <h2>Séries</h2>
-            <div class="grid">
-                <!-- ...existing code... exibir cards de séries ...existing code... -->
+            <div class="series-list">
+                <div class="movie-card" data-series-id="1399" data-season="1" data-episode="1">
+                    <img src="path/to/series/image.jpg" alt="Game of Thrones">
+                    <div class="movie-info">
+                        <h3>Game of Thrones <span class="year">(2011)</span></h3>
+                        <button class="play-btn" onclick="playSeries(1399, 1, 1)">Assistir Agora</button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contato" class="contact">
-            <h2>Contato</h2>
-            <p>Quer anunciar ou sugerir um conteúdo? Envie um e-mail para contato@playerflix.local</p>
+        <section id="contact" class="content-section">
+            <h2>Contact Us</h2>
+            <p>Para dúvidas, por favor entre em contato conosco no contact@moviesandseries.com</p>
         </section>
     </main>
 
-    <!-- Modal player -->
-    <div id="playerModal" class="modal" aria-hidden="true">
-        <div class="modal-backdrop" data-close></div>
-        <div class="modal-content" role="dialog" aria-modal="true">
-            <button class="modal-close" data-close aria-label="Fechar">✕</button>
-            <div class="iframe-wrap">
-                <!-- iframe será inserido aqui dinamicamente -->
-            </div>
+    <!-- Player de Filme -->
+    <div id="moviePlayer" class="movie-player">
+        <div class="player-container">
+            <button class="close-btn">&times;</button>
+            <iframe id="playerFrame" width="800" height="600" frameborder="0" allowfullscreen>
+            </iframe>
         </div>
     </div>
 
-    <script src="script.js" defer></script>
+    <footer>
+        <p>&copy; 2023 Movies and Series. All rights reserved.</p>
+    </footer>
+
+    <script src="src/js/main.js"></script>
+    <script src="src/js/router.js"></script>
+    <script src="src/js/player.js"></script>
 </body>
 
 </html>
-
-<head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2775721148337084"
-        crossorigin="anonymous"></script>
-</head>
